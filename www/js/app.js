@@ -1,8 +1,22 @@
+window.strobeInterval = 0;
+
  $(function () {
      $.fn.getFloat = function() {
      	return parseFloat($(this).val());
      }
  });
+
+function clearStrobe() {
+	if (window.strobeInterval) {
+		clearInterval(window.strobeInterval);
+		window.strobeInterval = 0;
+	}
+
+	// if the strobe was on, make sure that the light is in an off state before proceeding
+	if (window.plugins.flashlight.isSwitchedOn()) {
+		window.plugins.flashlight.switchOff();
+	}
+}
 
 $(document).ready(function() {
 	$('input').on('change', function () {
@@ -24,12 +38,20 @@ $(document).ready(function() {
 	});
 	
 	$('#toggle-flashlight').click(function() {
-		window.plugins.flashlight.available(function(isAvailable) {
-  		if (isAvailable) {
-				window.plugins.flashlight.toggle(); 
-		  } else {
-		    alert("Flashlight not available on this device");
-		  }
-		});
+		clearStrobe();	
+		$(this).toggleClass('activeBtn');
+		window.plugins.flashlight.toggle(); 
+	});
+	
+	$('#toggle-strobe').click(function() {
+		if ($(this).hasClass('activeBtn')) {
+			clearStrobe();	
+		} else {
+			window.plugins.flashlight.switchOn();	// start the strobe in the on state
+			window.strobeInterval = setInterval(function() {
+				window.plugins.flashlight.toggle();
+			}, 200);
+		}
+		$(this).toggleClass('activeBtn');
 	});
 })
