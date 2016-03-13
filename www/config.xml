@@ -42,7 +42,7 @@
     -->
 
     <!-- Plugins -->
-		<gap:plugin name="nl.x-services.plugins.slashlight" version="1.0" />
+		<gap:plugin name="nl.x-services.plugins.flashlight" version="1.0" />
 
     <!-- Core plugins -->
     <!-- Define app icon for each platform. -->
