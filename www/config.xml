@@ -6,7 +6,7 @@
         id        = "com.jonathonklem.flashlight"
         version   = "1.0.0">
 
-    <name>Tip Calculator</name>
+    <name>Flashlight</name>
 
     <description>
         Ad-Free, No-Tracking Flashlight.
