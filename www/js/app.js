@@ -13,9 +13,7 @@ function clearStrobe() {
 	}
 
 	// if the strobe was on, make sure that the light is in an off state before proceeding
-	if (window.plugins.flashlight.isSwitchedOn()) {
-		window.plugins.flashlight.switchOff();
-	}
+	window.plugins.flashlight.switchOff();
 }
 
 $(document).ready(function() {
