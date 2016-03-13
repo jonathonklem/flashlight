@@ -24,8 +24,7 @@ $(document).ready(function() {
 	});
 	
 	$('#toggle-flashlight').click(function() {
-		window.plugins.flashlight.switchOn();
-		console.log('Work');
+		alert('Work');
 		window.plugins.flashlight.available(function(isAvailable) {
   		if (isAvailable) {
 
