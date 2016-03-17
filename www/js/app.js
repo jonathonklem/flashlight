@@ -13,18 +13,6 @@ $(document).ready(function() {
 
 	$('.about-screen').fadeOut();
 	
-	$('.nav a').click(function() {
-		$('.panel').fadeOut();
-		target = $(this).data('target');
-
-		setTimeout(function() {
-			$(target).fadeIn();
-		}, 300);
-
-		$('.active').removeClass('active');
-		$(this).parent().addClass('active');
-	});
-	
 	$('#toggle-flashlight').click(function() {
 		if ($(this).html() == "Turn Flashlight On") {
 			$(this).html("Turn Flashlight Off");
